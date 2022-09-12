@@ -48,6 +48,10 @@ public class LogAspect {
         //requestInfo.setIp(request.getRemoteAddr());
         requestInfo.setUrl(request.getRequestURL().toString());
         requestInfo.setHttpMethod(request.getMethod());
+        /**
+         * 获取切入点方法的名字
+         * getSignature());是获取到这样的信息 :修饰符+ 包名+组件名(类名) +方法名，
+         */
         requestInfo.setClassMethod(String.format("%s.%s", proceedingJoinPoint.getSignature().getDeclaringTypeName(),
                 proceedingJoinPoint.getSignature().getName()));
         //requestInfo.setRequestParams(getRequestParamsByProceedingJoinPoint(proceedingJoinPoint));

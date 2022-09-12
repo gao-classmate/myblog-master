@@ -27,6 +27,7 @@ public class ControllerExceptionHandler {
         if (AnnotationUtils.findAnnotation(e.getClass(), ResponseStatus.class) != null) {
             throw e;
         }
+
         ModelAndView mv=new ModelAndView();
         mv.addObject("url",request.getRequestURL());
         mv.addObject("Exception",e);

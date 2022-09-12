@@ -91,10 +91,10 @@ qq:
 
 #七牛云配置
 qiniu:
-  accessKey: po_7P0rke8qsk2n27kOLY7kX0PPFcE7pr-uwtY1Q
-  secretKey: woRn3AZZ7hwHIq9GcBAT87h5V1iACr2fgijypYAD
-  bucket: yyh15879284798
-  path: http://rfb3a3ihg.hn-bkt.clouddn.com
+  accessKey: QMSjE-jYSGYg7-h17gg9eeQfbhRZSUl9y9g0s21C
+  secretKey: QYopfMfE-5fpW4E_ynm0qhw2iDoZLXV7Z5pbihne
+  bucket: 360-156
+  path: http://ri15mq4hh.hn-bkt.clouddn.com
 
 #短信相关配置
 sms:

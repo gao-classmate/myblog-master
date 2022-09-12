@@ -34,12 +34,16 @@ public class LoginController {
                         HttpSession session,
                         RedirectAttributes attributes){
         User user = userService.checkUser(username, password);
-        if(user != null){ //如果user!=null说明数据库有这条数据，用户名密码正确
-            user.setPassword(null); //将密码置为空，防止密码传到前端
-            session.setAttribute("user",user); //将user存入session中表示已登录
+        //如果user!=null说明数据库有这条数据，用户名密码正确
+        if(user != null){
+            //将密码置为空，防止密码传到前端
+            user.setPassword(null);
+            //将user存入session中表示已登录
+            session.setAttribute("user",user);
             return "admin/index";
         }else {
-            attributes.addFlashAttribute("message","用户名和密码错误"); //使用重定向，如果要传参只能使用RedirectAttributes，不能使用Model
+            //使用重定向，如果要传参只能使用RedirectAttributes，不能使用Model
+            attributes.addFlashAttribute("message","用户名和密码错误");
             return "redirect:/admin"; //登录失败，重定向执行/admin控制层方法
         }
     }

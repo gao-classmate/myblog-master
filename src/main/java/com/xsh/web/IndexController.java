@@ -1,6 +1,7 @@
 package com.xsh.web;
 
 import com.xsh.handler.NotFoundException;
+import com.xsh.handler.RepeatRequestException;
 import com.xsh.service.BlogService;
 import com.xsh.service.TagService;
 import com.xsh.service.TypeService;
@@ -38,11 +39,12 @@ public class IndexController {
     private TagService tagService;
     @GetMapping("/zeroError")
     public String zeroError(){
-      // int a=9/0;
-       String blog=null;
+       int a=9/0;
+       /*String blog=null;
         if(blog==null){
-            throw new NotFoundException("博客不存在！");
-        }
+           // throw new NotFoundException("博客不存在！");
+            throw new RepeatRequestException("test");
+        }*/
         System.out.println("----------index方法执行----------");
         return "index";
     }

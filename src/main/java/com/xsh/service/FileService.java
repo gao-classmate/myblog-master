@@ -2,7 +2,7 @@ package com.xsh.service;
 
 import com.qiniu.common.QiniuException;
 
-import javax.servlet.http.HttpSession;
+
 import java.io.File;
 import java.util.Map;
 
