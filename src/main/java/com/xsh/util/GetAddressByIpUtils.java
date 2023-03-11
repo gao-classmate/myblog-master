@@ -72,7 +72,7 @@ public class GetAddressByIpUtils {
             URL url = new URL(urlStr);
             HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
             // 设置连接属性
-            httpConn.setConnectTimeout(3000);
+            httpConn.setConnectTimeout(3000);   //请求时长
             httpConn.setDoInput(true);
             httpConn.setRequestMethod("GET");
             // 获取相应码

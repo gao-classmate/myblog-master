@@ -15,6 +15,8 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
@@ -91,8 +93,17 @@ public class LogAspect {
         String[] paramNames = ((MethodSignature) proceedingJoinPoint.getSignature()).getParameterNames();
         //参数值
         Object[] paramValues = proceedingJoinPoint.getArgs();
+        Object[] arguments = new Object[paramValues.length];
+        for(int i=0; i< paramNames.length; i++){
+            if(paramValues[i] instanceof ServletRequest || paramValues[i] instanceof ServletResponse){
+                continue;
+            }
+            arguments[i] = paramValues[i];
+        }
 
-        return buildRequestParam(paramNames, paramValues);
+
+
+        return buildRequestParam(paramNames, arguments);
     }
 
     private Map<String, Object> getRequestParamsByJoinPoint(JoinPoint joinPoint) {
@@ -101,7 +112,15 @@ public class LogAspect {
         //参数值
         Object[] paramValues = joinPoint.getArgs();
 
-        return buildRequestParam(paramNames, paramValues);
+        Object[] arguments = new Object[paramValues.length];
+        for(int i=0; i< paramNames.length; i++){
+            if(paramValues[i] instanceof ServletRequest || paramValues[i] instanceof ServletResponse){
+                continue;
+            }
+            arguments[i] = paramValues[i];
+        }
+
+        return buildRequestParam(paramNames, arguments);
     }
 
     private Map<String, Object> buildRequestParam(String[] paramNames, Object[] paramValues) {

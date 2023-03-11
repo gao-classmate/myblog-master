@@ -13,7 +13,8 @@
   <link rel="stylesheet" href="../static/css/jquery.emoji.css" th:href="@{/css/jquery.emoji.css}">
   <link src="../../static/css/fontawesome.min.css" th:src="@{/css/fontawesome.min.css}"></link>
 <!--  <link rel="icon" href="../static/favicon.ico" type="image/x-icon"/>-->
-  <link rel="icon" href="../static/favicon.ico" th:src="@{/favicon.ico}">
+  <link rel="shortcut icon" th:href="@{/favicon.ico}">
+  <link rel="bookmark" th:href="@{/favicon.ico}">
   <!--百度统计-->
   <script>
     var _hmt = _hmt || [];
@@ -33,13 +34,13 @@
   <div class="ui container">
     <div class="ui inverted secondary stackable menu">
       <h2 class="ui teal header item" title="个人博客">yyh_Blog</h2>
-      <a href="#" target="_blank" th:href="@{/}" class="m-item item m-mobile-hide " th:classappend="${n==1} ? 'active'"><i class="mini home icon"></i>&nbsp;首页</a>
-      <a href="#" target="_blank" th:href="@{/types/-1}" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class="mini idea icon"></i>分类</a>
-      <a href="#" target="_blank" th:href="@{/tags/-1}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="mini tags icon"></i>&nbsp;标签</a>
-      <a href="#" target="_blank" th:href="@{/archives}" class="m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'"><i class="mini clone icon"></i>&nbsp;归档</a>
+      <a href="#" target="_self" th:href="@{/}" class="m-item item m-mobile-hide " th:classappend="${n==1} ? 'active'"><i class="mini home icon"></i>&nbsp;首页</a>
+      <a href="#" target="_self" th:href="@{/types/-1}" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class="mini idea icon"></i>分类</a>
+      <a href="#" target="_self" th:href="@{/tags/-1}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="mini tags icon"></i>&nbsp;标签</a>
+      <a href="#" target="_self" th:href="@{/archives}" class="m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'"><i class="mini clone icon"></i>&nbsp;归档</a>
       <a href="#" target="_blank" th:href="@{/Messages}" class="m-item item m-mobile-hide" th:classappend="${n==5} ? 'active'"><i class="mini envelope outline icon"></i>&nbsp;留言</a>
-      <a href="#" target="_blank" th:href="@{/about}" class="m-item item m-mobile-hide" th:classappend="${n==6} ? 'active'"><i class="mini info icon"></i>关于我</a>
-      <a href="http://music.xiongsihao.com" class="m-item item m-mobile-hide" th:classappend="${n==7} ? 'active'"><i class="mini music icon"></i>&nbsp;在线音乐</a>
+      <a href="#" target="_self" th:href="@{/about}" class="m-item item m-mobile-hide" th:classappend="${n==6} ? 'active'"><i class="mini info icon"></i>关于我</a>
+      <a href="http://music.xiongsihao.com" target="_blank" th:href="@{/music}" class="m-item item m-mobile-hide" th:classappend="${n==7} ? 'active'"><i class="mini music icon"></i>&nbsp;在线音乐</a>
       <a href="http://netdisk.xiongsihao.com" class="m-item item m-mobile-hide" th:classappend="${n==8} ? 'active'"><i class="mini save icon"></i>&nbsp;云盘</a>
 <!--      <a href="#" target="_blank" th:href="@{/admin}" class="m-item item m-mobile-hide" th:classappend="${n==7} ? 'active'"><i class="mini user secret icon"></i>后台管理</a>
       <a href="#" target="_blank" th:href="@{/qq/oauth}" class="m-item item m-mobile-hide"><i class="mini qq icon"></i>QQ登录</a>-->
@@ -56,7 +57,7 @@
       <div class="right m-item m-mobile-hide item" >
         <div th:classappend="${session.loginStatus}?'myHideStyle':'myShowStyle'">
           <a href="#"  th:href="@{/qq/oauth}" style="width:80px; text-align:center"><i class="mini qq icon"></i>QQ登录&nbsp;|</a>
-          <a href="#"  th:href="@{/github/oauth}" style="width:80px; text-align:center"><i class="github icon"></i>github登录&nbsp;|</a>
+          <a href="#"  th:href="@{/gitee/oauth}" style="width:80px; text-align:center"><i class="github icon"></i>gitee登录&nbsp;|</a>
           <a href="#" target="_blank" th:href="@{/admin}" style="width:80px; text-align:center"><i class="mini user secret icon"></i>&nbsp;后台管理</a>
         </div>
 
@@ -71,8 +72,8 @@
             <a href="#" th:href="@{/qqlogout}" class="item">退出登录</a>
           </div>
           <div class="menu" th:if="${session.loginType == 2}">
-            <a href="#" th:href="@{/githubInfo}" class="item">Github资料</a>
-            <a href="#" th:href="@{/githublogout}" class="item">退出登录</a>
+            <a href="#" th:href="@{/gitee/giteeInfo}" class="item">Gitee资料</a>
+            <a href="#" th:href="@{/gitee/giteelogout}" class="item">退出登录</a>
           </div>
         </div>
       </div>

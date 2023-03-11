@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
@@ -28,26 +29,31 @@ public class QQHttpClient {
     }
     //qq返回信息：access_token=FE04************************CCE2&expires_in=7776000&refresh_token=88E4************************BE14
     public static String getAccessToken(String url) throws IOException {
+
         CloseableHttpClient client = HttpClients.createDefault();
         String token = null;
-
+        //创建httpGet
         HttpGet httpGet = new HttpGet(url);
+        //执行Get请求
         HttpResponse response = client.execute(httpGet);
+        //获得响应实体
         HttpEntity entity = response.getEntity();
 
         if(entity != null){
+            //打开响应内容
             String result = EntityUtils.toString(entity,"UTF-8");
             if(result.indexOf("access_token") >= 0){
                 String[] array = result.split("&");
                 for (String str : array){
                     if(str.indexOf("access_token") >= 0){
+                        //截取到AccessToken
                         token = str.substring(str.indexOf("=") + 1);
                         break;
                     }
                 }
             }
         }
-
+        //关闭连接
         httpGet.releaseConnection();
         return token;
     }

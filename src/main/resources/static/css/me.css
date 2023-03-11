@@ -113,9 +113,20 @@
     text-align: center;
 }*/
 body {
-    background: url("../images/bg.png");
-}
+    background: url("../images/bg4.jpg") no-repeat  center center;
 
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: 0 0;
+
+    /*background-image:linear-gradient(to right,#d3959b,#bfe6ba);*/
+}
+div{
+    opacity: 0.97 !important;
+}
+footer, nav{
+    opacity: 0.7 !important;
+}
 .m-padded-mini {
     padding: 0.2em !important;
 }

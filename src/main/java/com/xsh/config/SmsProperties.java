@@ -2,7 +2,6 @@ package com.xsh.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,7 +9,7 @@ import org.springframework.stereotype.Component;
  * @create : 2020-03-10 - 16:29
  * @describe: 短信信息配置类
  */
-@ConfigurationProperties
+@ConfigurationProperties(prefix="sms")
 public class SmsProperties {
 
     @Value("${sms.accessKeyId}")

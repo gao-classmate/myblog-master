@@ -17,15 +17,15 @@ public class QQInfo {
     @GeneratedValue
     private Long id;
 
-    private String logintime;
-    private String openid;
-    private String nickname;
-    private String gender;
-    private String year;
-    private String cip;
-    private String cid;
-    private String cname;
-    private String avatar;
+    private String logintime; //登录时间
+    private String openid;  //个人openid
+    private String nickname;  //昵称
+    private String gender; //性别
+    private String year; //生日
+    private String cip;  //ip地址
+    private String cid;  //地区编号
+    private String cname; //所在地
+    private String avatar; //头像
 
     public Long getId() {
         return id;

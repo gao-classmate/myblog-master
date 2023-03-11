@@ -1,7 +1,8 @@
 spring:
   thymeleaf:
     mode: HTML
-#  mvc:
+    cache: false
+  #  mvc:
 #    favicon:
 #      enabled: false #关闭springBoot默认的网站小叶子图标
   profiles:
@@ -72,7 +73,7 @@ cookie.time: 864000 #设置cookie的生命周期为十天，单位秒。 60*60*2
 #    count: countSql
 
 server:
-  port: 82
+  port: 80
   #port: 82
   session:
     timeout: 864000 #session自动过期时间为10天，单位秒 60*60*24*10；记录登录状态

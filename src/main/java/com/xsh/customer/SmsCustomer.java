@@ -21,6 +21,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Component
 public class SmsCustomer {
+
     @Autowired
     private AmqpTemplate amqpTemplate;
     @Autowired

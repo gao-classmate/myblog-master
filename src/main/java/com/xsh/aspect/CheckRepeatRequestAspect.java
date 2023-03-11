@@ -21,6 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import static com.xsh.util.GetAddressByIpUtils.getClientIPForNginx;
 
@@ -94,6 +95,7 @@ public class CheckRepeatRequestAspect {
             } else if (cache.getIfPresent(key) >= requestNum) {
                 //this.redisTemplate.opsForValue().set(ip,request.getServletPath(),1000, TimeUnit.MINUTES);
                 this.redisTemplate.opsForList().leftPush("IpBlack:ips", key);
+                //this.redisTemplate.expire("IpBlack:ips",10, TimeUnit.MINUTES);
                 response = key + "请求频繁，加入redis黑名单";
                 throw new Exception(response);
             } else {

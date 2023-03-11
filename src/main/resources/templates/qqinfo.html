@@ -6,6 +6,8 @@
     <title>QQ资料信息</title>
     <link rel="stylesheet" href="../static/css/semantic.min.css" th:href="@{/css/semantic.min.css}">
     <link rel="stylesheet" href="../static/css/me.css">
+    <link rel="shortcut icon" th:href="@{/favicon.ico}">
+    <link rel="bookmark" th:href="@{/favicon.ico}">
     <style>
         .myHideStyle{
             display: none !important;
@@ -58,7 +60,7 @@
                 <div class="right m-item m-mobile-hide item" >
                     <div th:classappend="${session.loginStatus}?'myHideStyle':'myShowStyle'">
                         <a href="#"  th:href="@{/qq/oauth}" style="width:80px; text-align:center"><i class="mini qq icon"></i>QQ登录&nbsp;|</a>
-                        <a href="#"  th:href="@{/github/oauth}" style="width:80px; text-align:center"><i class="github icon"></i>github登录&nbsp;|</a>
+                        <a href="#"  th:href="@{/gitee/oauth}" style="width:80px; text-align:center"><i class="gitee icon"></i>gitee登录&nbsp;|</a>
                         <a href="#" target="_blank" th:href="@{/admin}" style="width:80px; text-align:center"><i class="mini user secret icon"></i>&nbsp;后台管理</a>
                     </div>
 
@@ -73,8 +75,8 @@
                             <a href="#" th:href="@{/qqlogout}" class="item">退出登录</a>
                         </div>
                         <div class="menu" th:if="${session.loginType == 2}">
-                            <a href="#" th:href="@{/githubInfo}" class="item">Github资料</a>
-                            <a href="#" th:href="@{/githublogout}" class="item">退出登录</a>
+                            <a href="#" th:href="@{/gitee/giteeInfo}" class="item">Github资料</a>
+                            <a href="#" th:href="@{/gitee/giteelogout}" class="item">退出登录</a>
                         </div>
                     </div>
                 </div>

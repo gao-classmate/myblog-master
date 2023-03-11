@@ -135,6 +135,13 @@ public class QQController {
         return "redirect:/qqinfo";
     }
 
+    /**
+     * 拿到用户的数据后  进行一个数据展示的效果
+     * @param request
+     * @param session
+     * @param model
+     * @return
+     */
     @GetMapping("/qqinfo")
     public String home(HttpServletRequest request,HttpSession session, Model model){
             String loginStatus = (String) session.getAttribute("loginStatus");

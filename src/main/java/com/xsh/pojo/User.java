@@ -16,13 +16,13 @@ public class User {
 
     @Id
     @GeneratedValue
-    private Long id;
-    private String nickname;
-    private String username;
-    private String password;
-    private String email;
-    private String avatar;
-    private Integer type;
+    private Long id;  //主键id
+    private String nickname;  //昵称
+    private String username;   //用户名
+    private String password;  //密码
+    private String email;    //邮箱
+    private String avatar;   //头像
+    private Integer type;   //用户类型
     @Temporal(TemporalType.TIMESTAMP)   //@Temporal指定时间的类型
     private Date createTime;
     @Temporal(TemporalType.TIMESTAMP)
